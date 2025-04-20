@@ -17,7 +17,7 @@ export async function sendMail({ emailHtml, service }: SendMailProps) {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'shivangsemail@gmail.com',
+    to: 'support@paymytax.in',
     subject: `New Service Request: ${service}`,
     html: emailHtml,
   };

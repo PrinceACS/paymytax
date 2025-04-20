@@ -7,6 +7,8 @@ import { Menu as MenuIcon, Mountain as MountainIcon, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { Navbar } from "./navbar";
+import Image from "next/image";
+import logo from "@/public/images/paymytax-logo.png";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -20,7 +22,7 @@ export function Header() {
           className="flex items-center space-x-2"
           onClick={() => setOpen(false)}
         >
-          <MountainIcon className="w-6 h-6 text-blue-500" />
+          <Image src={logo} alt="Logo" width={40} height={40} />
           <span className="text-lg md:text-xl font-bold text-white">
             PayMyTax
           </span>

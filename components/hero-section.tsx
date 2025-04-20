@@ -2,17 +2,24 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Image from "next/image";
 import { GradientBackground } from "./ui/gradient-background";
 import tax_svg from "@/public/illustrations/Tax-rafiki.svg";
+import { ConsultationModal } from "./global/consulatation-modal";
 
 export function HeroSection() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 100, damping: 30 });
   const smoothY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
+
+  const handleConsultationClick = () => {
+    // Track the conversion event
+    setShowConsultationModal(true);
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -35,7 +42,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen pt-32">
           <motion.div
-            className="lg:w-1/2 space-y-8"
+            className={`lg:w-1/2 space-y-8 ${showConsultationModal ? "justify-center items-center" : ""}`}
             style={{
               transform: `translate(${smoothX.get() * 30}px, ${
                 smoothY.get() * 30
@@ -54,9 +61,18 @@ export function HeroSection() {
               <span className="font-bold">trustworthy</span> services to meet
               all your needs.
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition-all transform hover:scale-105">
+            <button
+              onClick={handleConsultationClick}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition-all transform hover:scale-105"
+            >
               Book a Free Consultation
             </button>
+
+            {showConsultationModal && (
+              <ConsultationModal
+                onClose={() => setShowConsultationModal(false)}
+              />
+            )}
           </motion.div>
 
           <div className="lg:w-1/2 w-full h-84 relative">
