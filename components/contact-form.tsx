@@ -26,7 +26,6 @@ export function ContactForm() {
       await sendMail({
         emailHtml: `Name: ${formData.name}<br>Email: ${formData.email}<br>Message: ${formData.message}`,
         service: "Contact Form Submission",
-        // Remove email property if not needed in sendMail
       });
       setSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
@@ -37,10 +36,13 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900 relative">
+    <section
+      id="contact"
+      className="py-20 bg-gray-100 dark:bg-slate-900 relative"
+    >
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl font-bold text-center mb-16 text-white"
+          className="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,17 +57,21 @@ export function ContactForm() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <h3 className="text-2xl font-bold text-green-500 mb-4">
+                <h3 className="text-2xl font-bold text-green-600 dark:text-green-500 mb-4">
                   Thank you!
                 </h3>
-                <p className="text-gray-300">
-                  We&apos;ll get back to you shortly.
+                <p className="text-gray-600 dark:text-gray-300">
+                  We&apos;ve received your message and will get back to you
+                  shortly.
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -75,11 +81,14 @@ export function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-blue-500 focus:outline-none text-white"
+                    className="w-full p-3 bg-white dark:bg-slate-800 rounded-lg border border-gray-300 dark:border-slate-700 focus:border-blue-500 focus:outline-none text-gray-900 dark:text-white"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -89,11 +98,14 @@ export function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-blue-500 focus:outline-none text-white"
+                    className="w-full p-3 bg-white dark:bg-slate-800 rounded-lg border border-gray-300 dark:border-slate-700 focus:border-blue-500 focus:outline-none text-gray-900 dark:text-white"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-300 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -103,7 +115,7 @@ export function ContactForm() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full p-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-blue-500 focus:outline-none text-white"
+                    className="w-full p-3 bg-white dark:bg-slate-800 rounded-lg border border-gray-300 dark:border-slate-700 focus:border-blue-500 focus:outline-none text-gray-900 dark:text-white"
                   />
                 </div>
                 <button

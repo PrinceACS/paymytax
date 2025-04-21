@@ -41,26 +41,26 @@ export function ConsultationModal({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
       <motion.div
-        className="bg-slate-800 rounded-xl p-6 w-full max-w-md"
+        className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md shadow-xl"
         initial={{ scale: 0.95 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-white">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             Schedule Consultation
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white text-2xl"
+            className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-2xl transition-colors"
           >
             &times;
           </button>
@@ -68,13 +68,13 @@ export function ConsultationModal({ onClose }: { onClose: () => void }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-400 mb-2 text-sm">
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Full Name
             </label>
             <input
               type="text"
               required
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
@@ -82,14 +82,14 @@ export function ConsultationModal({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <label className="block text-gray-400 mb-2 text-sm">
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               WhatsApp Number
             </label>
             <input
               type="tel"
               required
               pattern="[0-9]{10}"
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               onChange={(e) =>
                 setFormData({ ...formData, phone: e.target.value })
               }
@@ -97,11 +97,11 @@ export function ConsultationModal({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <label className="block text-gray-400 mb-2 text-sm">
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Service Interest
             </label>
             <select
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               onChange={(e) =>
                 setFormData({ ...formData, serviceInterest: e.target.value })
               }
@@ -114,24 +114,26 @@ export function ConsultationModal({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <label className="block text-gray-400 mb-2 text-sm">
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Company Name (Optional)
             </label>
             <input
               type="text"
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               onChange={(e) =>
                 setFormData({ ...formData, company: e.target.value })
               }
             />
           </div>
 
-          <button
+          <motion.button
             type="submit"
-            className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all text-sm font-medium"
           >
             Schedule Now
-          </button>
+          </motion.button>
         </form>
       </motion.div>
     </motion.div>

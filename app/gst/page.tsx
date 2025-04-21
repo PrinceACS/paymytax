@@ -66,7 +66,7 @@ const HeroSection = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/get-started"
+            href="/gst/get-started"
             className="px-6 py-3 text-lg font-semibold rounded-lg transition shadow-lg 
                       bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-900 dark:text-white dark:hover:bg-blue-800"
           >
@@ -76,7 +76,7 @@ const HeroSection = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/learn-more"
+            href="/gst/learn-more"
             className="px-6 py-3 text-lg font-semibold rounded-lg transition shadow-lg 
                       bg-gray-700 text-white hover:bg-gray-800 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
           >
@@ -135,7 +135,7 @@ const PricingTable = () => (
     <h2 className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent text-4xl text-center font-bold mb-10">
       Pricing Plans
     </h2>
-    <div className="max-w-4xl mx-auto bg-slate-100 dark:bg-slate-800 p-8 rounded-lg border border-slate-300 dark:border-slate-700">
+    <div className="max-w-4xl mx-5 sm:mx-auto bg-slate-100 dark:bg-slate-800 p-8 rounded-lg border border-slate-300 dark:border-slate-700">
       <table className="w-full text-left">
         <thead>
           <tr>

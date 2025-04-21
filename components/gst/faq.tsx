@@ -23,7 +23,7 @@ const FAQ = () => (
       ].map(({ question, answer }, index) => (
         <details
           key={index}
-          className="mb-4 p-4 bg-slate-300 dark:bg-slate-800 rounded-lg border border-slate-600 dark:border-slate-700"
+          className="mb-4 p-4 bg-slate-300 mx-5 dark:bg-slate-800 rounded-lg border border-slate-600 dark:border-slate-700"
         >
           <summary className="font-semibold cursor-pointer dark:text-white">
             {question}

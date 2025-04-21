@@ -1,4 +1,3 @@
-// components/service-overview-section.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -28,7 +27,7 @@ const services = [
   {
     title: "CTC Calculation",
     description: "Understand your salary structure and tax implications.",
-    icon: <Calculator className="text-4xl mb-4 text-blue-400 " size={80} />,
+    icon: <Calculator className="text-4xl mb-4 text-blue-400" size={80} />,
   },
   {
     title: "Audit Support",
@@ -57,10 +56,10 @@ export function ServiceOverviewSection() {
   } | null>(null);
 
   return (
-    <section className="py-20 bg-slate-900 relative">
+    <section className="py-20 bg-gray-100 dark:bg-slate-900 relative">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl font-bold text-center mb-16 text-white"
+          className="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -73,7 +72,7 @@ export function ServiceOverviewSection() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="p-8 bg-slate-800 rounded-3xl border text-center border-slate-700 hover:border-blue-500 transition-all cursor-pointer"
+              className="p-8 bg-white dark:bg-slate-800 rounded-3xl border text-center border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-all cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -83,16 +82,17 @@ export function ServiceOverviewSection() {
               <div className="flex items-center justify-center">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-400">{service.description}</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Render the modal if a service is selected */}
       {selectedService && (
         <ServiceModal
           service={selectedService}

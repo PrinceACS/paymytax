@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
+
 import { motion } from "framer-motion";
-import toast from "react-hot-toast";
+import { useState } from "react";
 import { sendMail } from "@/action/send-mail";
-import { EmailTemplate } from "./email-template";
 import { render } from "@react-email/render";
+import { EmailTemplate } from "@/components/email-template";
+import toast from "react-hot-toast";
 
 interface ServiceModalProps {
   service: {
@@ -46,15 +47,14 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
       );
 
       await sendMail({
-        emailHtml: emailHtml,
+        emailHtml,
         service: service.title,
       });
 
-      toast.success("Our Expert will contact you soon!");
+      toast.success("Our expert will contact you within 1 hour!");
       onClose();
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred. Please try again.");
+      toast.error("Failed to submit request. Please try again.");
     }
   };
 
@@ -62,33 +62,33 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
     switch (service.title) {
       case "Income Tax Filing":
         return (
-          <div className="mb-4">
-            <label className="block text-gray-400 mb-2 text-sm">
+          <div>
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               PAN Number
             </label>
             <input
               type="text"
               name="additionalInfo"
               placeholder="ABCDE1234F"
-              pattern="[A-Z]{4}[0-9]{4}[A-Z]{1}"
+              pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
               value={formData.additionalInfo}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
             />
           </div>
         );
       case "GST Registration":
         return (
-          <div className="mb-4">
-            <label className="block text-gray-400 mb-2 text-sm">
+          <div>
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Business Type
             </label>
             <select
               name="additionalInfo"
               value={formData.additionalInfo}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
             >
               <option value="">Select Business Type</option>
@@ -101,8 +101,8 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
         );
       case "CTC Calculation":
         return (
-          <div className="mb-4">
-            <label className="block text-gray-400 mb-2 text-sm">
+          <div>
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Monthly Salary (₹)
             </label>
             <input
@@ -111,15 +111,15 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
               placeholder="e.g. 75000"
               value={formData.additionalInfo}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
             />
           </div>
         );
       case "Audit Support":
         return (
-          <div className="mb-4">
-            <label className="block text-gray-400 mb-2 text-sm">
+          <div>
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Financial Year
             </label>
             <input
@@ -128,15 +128,15 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
               placeholder="FY 2023-24"
               value={formData.additionalInfo}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
             />
           </div>
         );
       case "Payroll Services":
         return (
-          <div className="mb-4">
-            <label className="block text-gray-400 mb-2 text-sm">
+          <div>
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Employees Count
             </label>
             <input
@@ -145,7 +145,7 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
               placeholder="e.g. 50"
               value={formData.additionalInfo}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
             />
           </div>
@@ -157,24 +157,26 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
       <motion.div
-        className="bg-slate-800 rounded-xl p-6 w-full max-w-md"
+        className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md shadow-xl"
         initial={{ scale: 0.95 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-white">{service.title}</h2>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            {service.title}
+          </h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white text-2xl"
+            className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-2xl transition-colors"
           >
             &times;
           </button>
@@ -182,7 +184,7 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-400 mb-2 text-sm">
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               Your Name
             </label>
             <input
@@ -191,14 +193,14 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
               placeholder="John Doe"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
               autoFocus
             />
           </div>
 
           <div>
-            <label className="block text-gray-400 mb-2 text-sm">
+            <label className="block text-gray-600 dark:text-gray-400 mb-2 text-sm">
               WhatsApp Number
             </label>
             <input
@@ -207,7 +209,7 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
               placeholder="98XXXXXX21"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-3 bg-slate-700 rounded-lg text-white text-sm"
+              className="w-full p-3 bg-gray-100 dark:bg-slate-700 rounded-lg text-gray-900 dark:text-white text-sm border border-gray-300 dark:border-slate-600"
               required
               inputMode="numeric"
             />
@@ -215,12 +217,14 @@ export function ServiceModal({ service, onClose }: ServiceModalProps) {
 
           {getAdditionalField()}
 
-          <button
+          <motion.button
             type="submit"
-            className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 active:scale-95 transition-transform text-sm font-medium"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all text-sm font-medium"
           >
             Get Instant Callback
-          </button>
+          </motion.button>
         </form>
       </motion.div>
     </motion.div>

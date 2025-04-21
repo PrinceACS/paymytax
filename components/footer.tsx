@@ -1,39 +1,42 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
+    <footer className="bg-gray-300 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800">
       <div className="container mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-16 mb-10">
           {/* Brand Column */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <h3 className="text-xl font-bold text-white">PayMyTax</h3>
-              <span className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded-full border border-blue-500/30">
-                Unit of Agilis
-              </span>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                PayMyTax
+              </h3>
+              <Link
+                href="https://agiliscommunications.com/"
+                className="text-xs bg-blue-600/20 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full border border-blue-500/30"
+              >
+                Unit of ACS
+              </Link>
             </div>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
               Simplifying tax compliance for businesses with expert solutions.
             </p>
-            {/* <div className="pt-2">
-              <p className="text-xs text-slate-500">
-                GSTIN: [Your GST Number Here]
-              </p>
-            </div> */}
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               {["Home", "Services", "Pricing", "Contact"].map((item) => (
                 <li key={item}>
                   <motion.a
                     href={`#${item.toLowerCase()}`}
-                    className="text-slate-400 hover:text-blue-400 transition-colors"
+                    className="text-gray-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     whileHover={{ x: 2 }}
                   >
                     {item}
@@ -45,11 +48,13 @@ export function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Contact Us</h3>
-            <ul className="space-y-3 text-slate-400">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Contact Us
+            </h3>
+            <ul className="space-y-3 text-gray-600 dark:text-slate-400">
               <li className="flex items-start gap-3">
                 <svg
-                  className="w-5 h-5 mt-0.5 text-blue-400 flex-shrink-0"
+                  className="w-7 h-7 mt-0.5 text-blue-600 dark:text-blue-400 flex-shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -65,7 +70,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <svg
-                  className="w-5 h-5 mt-0.5 text-blue-400 flex-shrink-0"
+                  className="w-7 h-7 mt-0.5 text-blue-600 dark:text-blue-400 flex-shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -84,7 +89,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <svg
-                  className="w-5 h-5 mt-0.5 text-blue-400 flex-shrink-0"
+                  className="w-7 h-7 mt-0.5 text-blue-600 dark:text-blue-400 flex-shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -103,10 +108,12 @@ export function Footer() {
 
           {/* Address */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Our Office</h3>
-            <div className="flex items-start gap-3 text-slate-400">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Our Office
+            </h3>
+            <div className="flex items-start gap-3 text-gray-600 dark:text-slate-400">
               <svg
-                className="w-5 h-5 mt-0.5 text-blue-400 flex-shrink-0"
+                className="w-7 h-7 mt-0.5 text-blue-600 dark:text-blue-400 flex-shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -136,14 +143,20 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-8 border-t border-slate-800">
+        <div className="pt-8 border-t border-gray-200 dark:border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-slate-500 text-center md:text-left">
+            <p className="text-sm text-gray-500 dark:text-slate-500 text-center md:text-left">
               © {new Date().getFullYear()} PayMyTax. All rights reserved.
             </p>
-            <p className="text-xs text-slate-600 text-center md:text-right">
-              PayMyTax is a specialized service unit of Agilis Communication
-              Services Pvt. Ltd.
+            <p className="text-xs text-gray-600 dark:text-slate-600 text-center md:text-right">
+              PayMyTax is a specialized service unit of{" "}
+              <Link
+                href={"https://www.agilis.in/"}
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Agilis Communication Services Pvt. Ltd
+              </Link>
+              .
             </p>
           </div>
         </div>

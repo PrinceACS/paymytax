@@ -1,4 +1,3 @@
-// components/hero-section.tsx
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
@@ -17,7 +16,6 @@ export function HeroSection() {
   const [showConsultationModal, setShowConsultationModal] = useState(false);
 
   const handleConsultationClick = () => {
-    // Track the conversion event
     setShowConsultationModal(true);
   };
 
@@ -32,7 +30,7 @@ export function HeroSection() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-slate-950">
+    <div className="min-h-screen relative overflow-hidden bg-white dark:bg-slate-950">
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 1] }}>
           <GradientBackground />
@@ -50,11 +48,13 @@ export function HeroSection() {
             }}
           >
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-              <span className="text-white">Hassle-Free</span>{" "}
+              <span className="text-gray-900 dark:text-white">Hassle-Free</span>{" "}
               <span className="text-nowrap">Tax Filing</span> <br />
-              <span className="text-white">Let Us Help You</span>
+              <span className="text-gray-900 dark:text-white">
+                Let Us Help You
+              </span>
             </h1>
-            <p className="text-gray-300 text-xl">
+            <p className="text-gray-600 dark:text-gray-300 text-xl">
               <span className="font-bold">Simplify</span> your tax filing
               process with our expert guidance. We provide{" "}
               <span className="font-bold">efficient</span> and{" "}
@@ -78,7 +78,13 @@ export function HeroSection() {
           <div className="lg:w-1/2 w-full h-84 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-3xl blur-3xl" />
             <div className="relative h-full flex items-center justify-center">
-              <Image src={tax_svg} alt="Tax rafiki" width={600} height={600} />
+              <Image
+                src={tax_svg}
+                alt="Tax rafiki"
+                width={600}
+                height={600}
+                className="dark:filter dark:brightness-90"
+              />
             </div>
           </div>
         </div>

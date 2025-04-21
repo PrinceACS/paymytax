@@ -54,12 +54,11 @@ export function WhyChooseSection({ autoplay = true }) {
   }, [autoplay]);
 
   return (
-    <section className="relative py-24 bg-gray-900 text-white overflow-hidden">
+    <section className="relative py-24 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
         <h2 className="text-4xl font-bold text-center mb-12">Why Choose Us?</h2>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* IMAGE SECTION */}
           <div className="relative w-full h-96 lg:h-[500px]">
             <AnimatePresence>
               {reasons.map(
@@ -78,7 +77,7 @@ export function WhyChooseSection({ autoplay = true }) {
                         alt={reason.title}
                         width={500}
                         height={500}
-                        className="rounded-lg shadow-lg"
+                        className="rounded-lg shadow-lg dark:filter dark:brightness-90"
                       />
                     </motion.div>
                   )
@@ -86,7 +85,6 @@ export function WhyChooseSection({ autoplay = true }) {
             </AnimatePresence>
           </div>
 
-          {/* TEXT SECTION */}
           <div className="flex flex-col gap-6">
             <motion.h3
               key={active}
@@ -98,48 +96,55 @@ export function WhyChooseSection({ autoplay = true }) {
               {reasons[active].title}
             </motion.h3>
 
-            <p className="text-gray-400">{reasons[active].description}</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              {reasons[active].description}
+            </p>
 
-            {/* Testimonial */}
             <motion.blockquote
               key={reasons[active].quote}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
-              className="border-l-4 border-blue-400 pl-4 italic text-gray-300"
+              className="border-l-4 border-blue-400 pl-4 italic text-gray-700 dark:text-gray-300"
             >
               &quot;{reasons[active].quote}&quot;
             </motion.blockquote>
 
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
               <span className="font-bold">{reasons[active].name}</span>,{" "}
               {reasons[active].role}
             </p>
 
-            {/* Controls */}
             <div className="flex items-center space-x-4 mt-6">
               <button
                 onClick={handlePrev}
-                className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
+                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
               >
-                <ArrowLeft size={24} />
+                <ArrowLeft
+                  size={24}
+                  className="text-gray-800 dark:text-gray-200"
+                />
               </button>
               <button
                 onClick={handleNext}
-                className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
+                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
               >
-                <ArrowRight size={24} />
+                <ArrowRight
+                  size={24}
+                  className="text-gray-800 dark:text-gray-200"
+                />
               </button>
             </div>
 
-            {/* Dots Indicator */}
             <div className="flex space-x-2 mt-6 justify-center">
               {reasons.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActive(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    active === index ? "bg-blue-400 scale-125" : "bg-gray-600"
+                    active === index
+                      ? "bg-blue-400 scale-125"
+                      : "bg-gray-300 dark:bg-gray-600"
                   }`}
                 />
               ))}

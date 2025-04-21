@@ -7,6 +7,7 @@ import { ITRBenefits } from "@/components/itr/itr-benefits";
 import { ITRFAQs } from "@/components/itr/itr-faq";
 import Image from "next/image";
 import tax_svg from "@/public/illustrations/Business deal-pana.svg";
+import { ITRPricing } from "@/components/itr/itr-pricing";
 
 export default function ITRPage() {
   return (
@@ -49,6 +50,7 @@ export default function ITRPage() {
         <ITRForms />
         <ITRBenefits />
         <ITRFAQs />
+        <ITRPricing />
       </div>
     </Layout>
   );

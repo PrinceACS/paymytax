@@ -15,7 +15,7 @@ export default function Home() {
       {/* <ServicesSection /> */}
       <TestimonialsSection />
       {/* <PricingSection /> */}
-      <ContactForm />
+      {/* <ContactForm /> */}
     </Layout>
   );
 }

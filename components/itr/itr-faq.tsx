@@ -6,11 +6,11 @@ export const ITRFAQs = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-white mb-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
         Frequently Asked Questions
       </h2>
-      <div className="space-y-6">
+      <div className="space-y-4">
         {[
           {
             question: "Who needs to file an ITR?",
@@ -28,19 +28,20 @@ export const ITRFAQs = () => {
               "Yes, you can revise your ITR if you discover any errors or omissions.",
           },
         ].map((faq, index) => (
-          <div
+          <motion.div
             key={index}
-            className="p-6 bg-slate-800 rounded-xl border border-slate-700"
+            whileHover={{ scale: 1.01 }}
+            className="p-6 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm dark:shadow-none"
           >
             <div
               className="flex items-center justify-between cursor-pointer"
               onClick={() => setActiveFAQ(activeFAQ === index ? null : index)}
             >
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 {faq.question}
               </h3>
               <ChevronRight
-                className={`transform transition-transform ${
+                className={`text-gray-500 dark:text-gray-400 transform transition-transform ${
                   activeFAQ === index ? "rotate-90" : ""
                 }`}
               />
@@ -50,12 +51,13 @@ export const ITRFAQs = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-4 text-gray-300"
+                transition={{ duration: 0.2 }}
+                className="mt-4 text-gray-600 dark:text-gray-300"
               >
                 {faq.answer}
               </motion.div>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { GradientBackground } from "./gradient-background";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { ContactForm } from "../contact-form";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -23,6 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
+      <ContactForm />
       <Footer />
     </div>
   );
