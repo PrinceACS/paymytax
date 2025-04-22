@@ -1,6 +1,14 @@
 import { ReactElement } from "react";
 import { FileText, Scale, Percent, Globe } from "lucide-react";
 
+
+export const gstPricingData = [
+  { label: "Service", value: "GST Registration" },
+  { label: "Our Fee", value: "₹1,500" },
+  { label: "Govt Fee", value: "₹0" },
+  { label: "Late Penalty", value: "₹10,000+" },
+];
+
 export interface GSTReturn {
     form: string;
     frequency: string;

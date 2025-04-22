@@ -14,18 +14,18 @@ export function ITRPricing() {
           ITR Pricing Plans
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Basic Plan */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {/* ITR-1 Plan */}
           <motion.div
             whileHover={{ y: -10 }}
             className="p-8 bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-lg dark:shadow-slate-700/20"
           >
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                Basic
+                ITR-1 (Sahaj)
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                For simple tax filings
+                For salaried individuals with simple income
               </p>
             </div>
             <div className="mb-8">
@@ -36,11 +36,11 @@ export function ITRPricing() {
             </div>
             <ul className="space-y-4 mb-8">
               {[
-                "Simple ITR (Form ITR-1/2)",
-                "Single Form 16",
-                "Max 5 income entries",
-                "Basic tax calculation",
-                "Email support",
+                "Income up to ₹50 lakh",
+                "Income from salary/pension",
+                "Income from one house property",
+                "Income from other sources (excluding lottery and racehorses)",
+                "Resident individuals only",
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
@@ -50,12 +50,12 @@ export function ITRPricing() {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-900 dark:text-white rounded-lg font-medium transition-colors">
-              Choose Basic
-            </button>
+            {/* <button className="w-full py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-900 dark:text-white rounded-lg font-medium transition-colors">
+              Choose ITR-1
+            </button> */}
           </motion.div>
 
-          {/* Standard Plan (Featured) */}
+          {/* ITR-2 Plan */}
           <motion.div
             whileHover={{ y: -10 }}
             className="p-8 bg-white dark:bg-slate-800 rounded-2xl border-2 border-blue-500 dark:border-blue-600 shadow-xl dark:shadow-blue-900/20 relative overflow-hidden"
@@ -65,26 +65,26 @@ export function ITRPricing() {
             </div>
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
-                Standard <Star className="w-5 h-5 text-yellow-400 ml-2" />
+                ITR-2 <Star className="w-5 h-5 text-yellow-400 ml-2" />
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                For most individuals
+                For individuals with capital gains or multiple properties
               </p>
             </div>
             <div className="mb-8">
               <span className="text-4xl font-bold text-gray-900 dark:text-white">
-                ₹1,499
+                ₹1,999
               </span>
               <span className="text-gray-600 dark:text-gray-400">/filing</span>
             </div>
             <ul className="space-y-4 mb-8">
               {[
-                "Complex ITR (Form ITR-3/4)",
-                "Multiple Form 16",
-                "Unlimited income entries",
-                "Tax optimization",
-                "Capital gains support",
-                "Priority email support",
+                "Income exceeding ₹50 lakh",
+                "Income from salary/pension",
+                "Income from multiple house properties",
+                "Capital gains income",
+                "Foreign assets or income",
+                "Resident and non-resident individuals",
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
@@ -94,39 +94,38 @@ export function ITRPricing() {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
-              Choose Standard
-            </button>
+            {/* <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+              Choose ITR-2
+            </button> */}
           </motion.div>
 
-          {/* Premium Plan */}
+          {/* ITR-3 Plan */}
           <motion.div
             whileHover={{ y: -10 }}
             className="p-8 bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-lg dark:shadow-slate-700/20"
           >
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
-                Premium <Zap className="w-5 h-5 text-purple-500 ml-2" />
+                ITR-3 <Zap className="w-5 h-5 text-purple-500 ml-2" />
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                For businesses & professionals
+                For individuals with business or professional income
               </p>
             </div>
             <div className="mb-8">
               <span className="text-4xl font-bold text-gray-900 dark:text-white">
-                ₹2,999
+                ₹2,599
               </span>
               <span className="text-gray-600 dark:text-gray-400">/filing</span>
             </div>
             <ul className="space-y-4 mb-8">
               {[
-                "Business ITR (Form ITR-5/6)",
-                "Multiple Form 16/16A",
-                "Unlimited entries",
-                "Dedicated CA",
-                "Tax planning consultation",
-                "Audit support",
-                "24/7 priority support",
+                "Income from business or profession",
+                "Income from salary/pension",
+                "Income from house property",
+                "Capital gains income",
+                "Other sources of income",
+                "Partners in firms",
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
@@ -136,21 +135,53 @@ export function ITRPricing() {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-medium transition-colors">
-              Choose Premium
-            </button>
+            {/* <button className="w-full py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-medium transition-colors">
+              Choose ITR-3
+            </button> */}
+          </motion.div>
+
+          {/* ITR-4 Plan */}
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="p-8 bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-lg dark:shadow-slate-700/20"
+          >
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+                ITR-4 <Zap className="w-5 h-5 text-purple-500 ml-2" />
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                For individuals, Hindu Undivided Families (HUFs), and firms
+                (other than LLP) having income from a profession or business
+              </p>
+            </div>
+            <div className="mb-8">
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                ₹3,499
+              </span>
+              <span className="text-gray-600 dark:text-gray-400">/filing</span>
+            </div>
+            <ul className="space-y-4 mb-8">
+              {[
+                "Income from profession or business",
+                "Income from salary/pension",
+                "Income from house property",
+                "Income from capital gains",
+                "Other sources of income",
+                "For taxpayers opting for the presumptive taxation scheme under section 44AD/44AE",
+              ].map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {/* <button className="w-full py-3 bg-blue-800 hover:bg-blue-900 text-white rounded-lg font-medium transition-colors">
+              Choose ITR-4
+            </button> */}
           </motion.div>
         </div>
-
-        {/* Additional Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-center text-gray-600 dark:text-gray-400 mt-16 max-w-2xl mx-auto"
-        >
-          *Additional charges may apply for complex cases. All plans include
-          free revisions within 15 days of filing.
-        </motion.p>
       </div>
     </section>
   );

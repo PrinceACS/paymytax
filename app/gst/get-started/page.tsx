@@ -134,9 +134,9 @@ export default function GetStartedPage() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">
+                {/* <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">
                   Select Plan
-                </button>
+                </button> */}
               </motion.div>
             ))}
           </div>
